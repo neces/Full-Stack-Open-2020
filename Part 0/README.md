@@ -32,7 +32,7 @@ that renders notes to display
 end note
 ```
 
-![0.4 Traditional Web Application (New note)](/Users/nejacesnik/Full-Stack-Open-2020/Part 0/0.4 Traditional Web Application (New note).png)
+![0.4 Traditional Web Application (New note)](https://raw.githubusercontent.com/neces/Full-Stack-Open-2020/master/Part%200/0.4%20Traditional%20Web%20Application%20(New%20note).png)
 
 ## 0.5 Single page website
 
@@ -62,7 +62,7 @@ that renders notes to display
 end note
 ```
 
-![0.5 Single Page Application](/Users/nejacesnik/Full-Stack-Open-2020/Part 0/0.5 Single Page Application.png)
+![0.5 Single Page Application](https://raw.githubusercontent.com/neces/Full-Stack-Open-2020/master/Part%200/0.5%20Single%20Page%20Application.png)
 
 ## 0.6 New note (Single page website)
 
@@ -80,4 +80,4 @@ that adds new note and displays it
 end note
 ```
 
-![0.6 Single Page Application (New note)](/Users/nejacesnik/Full-Stack-Open-2020/Part 0/0.6 Single Page Application (New note).png)
+![0.6 Single Page Application (New note)](https://raw.githubusercontent.com/neces/Full-Stack-Open-2020/master/Part%200/0.6%20Single%20Page%20Application%20(New%20note).png)
