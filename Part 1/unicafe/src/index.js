@@ -7,16 +7,16 @@ const Button = ({ text, handleClick }) => (
   </button>
 )
 
-const Statistic = ({ text, value }) => (
+const Statistic = ({ text, value, percentage }) => (
   <div>
-    {text} {value}
+    {text} {Math.round(value * 100) / 100} {percentage}
   </div>
 )
 
 const Statistics = ({ good, neutral, bad}) => {
   let total = good + neutral + bad
 
-  if (total == 0) {
+  if (total === 0) {
     return <p>No feedback given</p>
   }
   else {
@@ -27,7 +27,7 @@ const Statistics = ({ good, neutral, bad}) => {
         <Statistic text="Bad" value ={bad} />
         <Statistic text="Total" value ={total} />
         <Statistic text="Average" value ={(good - bad)/total} />
-        <Statistic text="Positive" value ={((good/total)*100) + '%'} />
+        <Statistic text="Positive" value ={((good/total)*100)} percentage={'%'}/>
       </>
       )
   }
