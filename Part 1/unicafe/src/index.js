@@ -19,6 +19,12 @@ const App = () => {
     </button>
   )
 
+  const Total = ({ good, neutral, bad }) => <p>Total {good + neutral + bad}</p>
+
+  const Average = ({ good, neutral, bad }) => <p>Average {(good - bad)/(good + neutral + bad)}</p>
+
+  const Positive = ({ good, neutral, bad }) => <p>Positive {((good)/(good + neutral + bad)*100)} %</p>
+
   return (
     <div>
       <div>
@@ -40,6 +46,10 @@ const App = () => {
         <Reviews text='Good' number={good} />
         <Reviews text='Neutral' number={neutral} />
         <Reviews text='Bad' number={bad} />
+
+        <Total good={good} neutral={neutral} bad={bad} />
+        <Average good={good} neutral={neutral} bad={bad} />
+        <Positive good={good} neutral={neutral} bad={bad} />
       </div>
     </div>
   )
