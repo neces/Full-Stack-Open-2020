@@ -22,6 +22,6 @@ const App = () => {
       <Hello name={name} age={age} />
     </>
   )
-  }
+}
 
 ReactDOM.render(<App />, document.getElementById('root'))

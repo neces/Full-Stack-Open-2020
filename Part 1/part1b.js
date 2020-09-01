@@ -107,3 +107,26 @@ const sum = (p1, p2) => {
   // Calling a function
     const result = sum(1, 5)
     console.log(result)
+
+  /** Object methods */
+
+  const arto = {
+    name: 'Arto Hellas',
+    age: 35,
+    education: 'PhD',
+    greet: function() {
+      console.log('hello, my name is ' + this.name)
+    },
+    doAddition: function(a, b) {
+      console.log(a + b)
+    },
+  }
+  
+  arto.doAddition(1, 4)        // 5 is printed
+  
+  const referenceToAddition = arto.doAddition // storing a method reference in a variable
+  referenceToAddition(10, 15)   // 25 is printed
+
+  // if we do this for method greet there is no parameters, so returns undefined
+  // must use this. to refer back to the original
+
