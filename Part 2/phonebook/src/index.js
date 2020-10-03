@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
-
-const Person = ({ name, number }) => {
-  return (
-  <li>{name} {number}</li>
-  )
-}
+import Filter from './components/Filter'
+import PersonForm from './components/PersonForm'
+import Persons from './components/Persons'
 
 const App = () => {
   const [ persons, setPersons ] = useState([
@@ -16,6 +13,8 @@ const App = () => {
   ]) 
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
+  const [ search, setSearch ] = useState('')
+  const [ searchDisplay, setSearchDisplay ] = useState(persons)
 
   const addPerson = (event) => {
     event.preventDefault()
@@ -45,26 +44,31 @@ const App = () => {
     console.log(event.target.value)
     setNewNumber(event.target.value)
   }
+
+  const handleChange = (event) => {
+    console.log(event.target.value)
+    setSearch(event.target.value) // set state is asynchronous, so the value of search will be one letter behind
+
+    let s = event.target.value // save as new value, so it compares the correct output
+    if (s !== "") {
+      let newList = persons.filter(person => person.name.toLowerCase().includes(s.toLowerCase()))
+      setSearchDisplay(newList)
+    }
+    else {
+      setSearchDisplay(persons)
+    }
+  }
   
   return (
     <div>
       <h2>Phonebook</h2>
+      <Filter search={search} handleChange={handleChange} />
+
       <h2>Add a new person</h2>
-      <form onSubmit={addPerson}>
-        <div>
-          Name <input value={newName} onChange={handleNameChange}/>
-        </div>
-        <div>
-          Number <input value={newNumber} onChange={handleNumberChange}/>
-        </div>
-        <button type="submit">Add</button>
-      </form>
+      <PersonForm newName={newName} newNumber={newNumber} addPerson={addPerson} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange}/>
+
       <h2>Numbers</h2>
-        <ul>
-        {persons.map(person =>
-          <Person key={person.name} name={person.name} number={person.number} />
-        )}
-        </ul>
+      <Persons persons={search.length < 1 ? persons : searchDisplay}/>
     </div>
   )
 }
