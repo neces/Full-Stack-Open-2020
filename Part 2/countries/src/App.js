@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Country from './components/Country'
+import Countries from './components/Countries'
 
 const App = () => {
   const [ countries, setCountries ] = useState([]) 
@@ -36,11 +36,7 @@ const App = () => {
   return (
     <div>
       <div> Find countries <input value={search} onChange={handleChange}/></div>
-      {/* <ul>
-        {searchDisplay.map(country =>
-          <Country key={searchDisplay.callingCodes} searchDisplay={searchDisplay} />
-        )}
-      </ul> */}
+      <Countries countriesList={searchDisplay}/>
     </div>
   )
 }
